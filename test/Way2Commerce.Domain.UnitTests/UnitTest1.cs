@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Way2Commerce.TestUnits;
+namespace Way2Commerce.Domain.UnitTests;
 
 public class UnitTest1
 {

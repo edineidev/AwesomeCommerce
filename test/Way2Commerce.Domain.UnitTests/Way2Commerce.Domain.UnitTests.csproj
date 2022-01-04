@@ -20,4 +20,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Way2Commerce.Domain\Way2Commerce.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
