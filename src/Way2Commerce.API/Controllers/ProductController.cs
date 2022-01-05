@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Way2Commerce.Domain.Entities;
+using Way2Commerce.Data;
+using Way2Commerce.Domain.Repositories;
 
 namespace Way2Commerce.API.Controllers;
 
@@ -8,18 +10,23 @@ namespace Way2Commerce.API.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly ILogger<ProductController> _logger;
+    private readonly IProductRepository _productRepository;
 
-    public ProductController(ILogger<ProductController> logger)
+    public ProductController(IProductRepository productRepository, ILogger<ProductController> logger)
     {
         _logger = logger;
+        _productRepository = productRepository;
     }
 
-    [HttpGet(Name = "GetProduct")]
-    public IEnumerable<Product> Get()
+    [HttpPost(Name = "CreateProduct")]
+    public Product Create(Product product)
     {
-        return new List<Product>(){
-            new Product(1, "123456", "Wayne Batman", "Sou foda!!!", 99.99m, 1),
-            new Product(2, "123457", "Wayne Batman2", "Sou foda2!!!", 999.99m, 1)
-        };
+        return _productRepository.Create(product);
+    }
+
+    [HttpGet(Name = "ListProduct")]
+    public IEnumerable<Product> List()
+    {
+        return _productRepository.List();
     }
 }

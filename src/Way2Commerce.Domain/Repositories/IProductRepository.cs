@@ -4,5 +4,8 @@ namespace Way2Commerce.Domain.Repositories;
 
 public interface IProductRepository
 {
-    int Create(Product product);
+    Product Create(Product product);
+    IEnumerable<Product> List();
+    Product Update(Product product);
+    bool Delete(int productId);
 }
