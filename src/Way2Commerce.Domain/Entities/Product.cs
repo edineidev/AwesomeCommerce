@@ -18,7 +18,7 @@ public class Product
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal Price { get; set; }
-    public DateTime  CreatedDate { get; set; }
+    public DateTime CreatedDate { get; set; }
     public int CategoryId { get; set; } //TODO: Maybe use complex entity
 
     public bool IsValid()

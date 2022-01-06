@@ -1,17 +1,20 @@
-using Xunit;
-using NSubstitute;
 using FluentAssertions;
-using Way2Commerce.Domain.Repositories;
+
+using NSubstitute;
+
 using Way2Commerce.Domain.Entities;
+using Way2Commerce.Domain.Repositories;
+
+using Xunit;
 
 namespace Way2Commerce.Domain.UnitTests.Repositories;
 
 public class UnitTest1
 {
-    [Fact(Skip="Need update")]
+    [Fact(Skip = "Need update")]
     public void Test1()
     {
-        var repository  = Substitute.For<IProductRepository>();
+        var repository = Substitute.For<IProductRepository>();
 
         //repository.Create(Arg.Any<Product>()).Returns(1);
 
