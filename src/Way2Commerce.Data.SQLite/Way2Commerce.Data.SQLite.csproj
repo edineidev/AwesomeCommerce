@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Way2Commerce.Domain\Way2Commerce.Domain.csproj" />
+    <ProjectReference Include="..\Way2Commerce.Data.PostgreSQL\Way2Commerce.Data.PostgreSQL.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

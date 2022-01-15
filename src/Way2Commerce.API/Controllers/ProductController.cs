@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 
-using Way2Commerce.Data;
 using Way2Commerce.Domain.Entities;
 using Way2Commerce.Domain.Repositories;
 
@@ -28,6 +27,9 @@ public class ProductController : ControllerBase
     [HttpGet(Name = "ListProduct")]
     public IEnumerable<Product> List()
     {
-        return _productRepository.List();
+        //return _productRepository.List();
+        return new List<Product>(){
+            new Product(1, "Code123", "Wayne Batman", "Sou foda!!!", 99.99m, 1)
+        };
     }
 }

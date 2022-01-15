@@ -1,10 +1,10 @@
-using Way2Commerce.Data.Repositories;
 using Way2Commerce.Domain.Repositories;
+using Way2Commerce.Data.PostgreSQL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductRepository>(p => new ProductRepository(builder.Configuration.GetConnectionString("ProductingContext")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -27,3 +27,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+builder.Configuration.GetConnectionString("BloggingContext");
