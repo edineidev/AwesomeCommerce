@@ -32,9 +32,8 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/src/Way2Commerce.API/Way2Commerce.API.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "--project",
+                "${workspaceFolder}/src/Way2Commerce.API/Way2Commerce.API.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

@@ -11,11 +11,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>none</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Way2Commerce.Data\Way2Commerce.Data.csproj" />
     <ProjectReference Include="..\Way2Commerce.Domain\Way2Commerce.Domain.csproj" />
     <ProjectReference Include="..\Way2Commerce.Data.PostgreSQL\Way2Commerce.Data.PostgreSQL.csproj" />
   </ItemGroup>

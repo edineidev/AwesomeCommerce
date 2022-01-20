@@ -9,7 +9,7 @@ public class Product
         Name = name;
         Description = description;
         Price = price;
-        CreatedDate = DateTime.Now; //TODO: Add abstration
+        CreatedDate = DateTime.UtcNow; //TODO: Add abstration
         CategoryId = categoryId;
     }
 

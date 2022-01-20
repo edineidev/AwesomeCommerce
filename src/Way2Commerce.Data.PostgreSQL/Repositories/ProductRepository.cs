@@ -1,4 +1,4 @@
-using Way2Commerce.Data.PpostgreSQL;
+using Way2Commerce.Data.PostgreSQL;
 using Way2Commerce.Domain.Entities;
 using Way2Commerce.Domain.Repositories;
 
@@ -6,19 +6,17 @@ namespace Way2Commerce.Data.PostgreSQL.Repositories;
 
 public class ProductRepository : IProductRepository
 {
-    private readonly string _connectionString;
+    private ProductingContext _productingContext;
 
-    public ProductRepository(string connectionString)
+    public ProductRepository(ProductingContext productingContext)
     {
-        _connectionString = connectionString;
+        _productingContext = productingContext;
+        
     }
-
     public Product Create(Product product)
     {
-        var db = new ProductingContext(_connectionString);
-
-        db.Add(product);
-        db.SaveChanges();
+        _productingContext.Add(product);
+        _productingContext.SaveChanges();
 
         return product;
     }
@@ -30,9 +28,7 @@ public class ProductRepository : IProductRepository
 
     public IEnumerable<Product> List()
     {
-        var db = new ProductingContext(_connectionString);
-
-        return db.Products;
+        return _productingContext.Products;
     }
 
     public Product Update(Product product)

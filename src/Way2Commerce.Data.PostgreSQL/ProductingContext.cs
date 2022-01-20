@@ -2,17 +2,16 @@
 
 using Way2Commerce.Domain.Entities;
 
-namespace Way2Commerce.Data.PpostgreSQL;
+namespace Way2Commerce.Data.PostgreSQL;
 public class ProductingContext : DbContext
 {
-    private readonly string _connectionString;
-
-    public ProductingContext(string connectionString)
+    public ProductingContext(DbContextOptions? options) : base(options)
     {
-        _connectionString = connectionString;
+        
     }
+
     public DbSet<Product> Products { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    => optionsBuilder.UseNpgsql(_connectionString);
+    => optionsBuilder.UseNpgsql();
 }

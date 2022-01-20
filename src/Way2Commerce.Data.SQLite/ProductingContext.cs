@@ -1,23 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// using Microsoft.EntityFrameworkCore;
 
-using Way2Commerce.Domain.Entities;
+// using Way2Commerce.Domain.Entities;
 
 namespace Way2Commerce.Data.SQLite;
-public class ProductingContext : DbContext
+public class ProductingContext
 {
-    public DbSet<Product> Products { get; set; }
+    // public DbSet<Product> Products { get; set; }
 
-    public string DbPath { get; }
+    // public string DbPath { get; }
 
-    public ProductingContext()
-    {
-        var folder = Environment.SpecialFolder.LocalApplicationData;
-        var path = Environment.GetFolderPath(folder);
-        DbPath = System.IO.Path.Join(path, "producting.db");
-    }
+    // public ProductingContext()
+    // {
+    //     var folder = Environment.SpecialFolder.LocalApplicationData;
+    //     var path = Environment.GetFolderPath(folder);
+    //     DbPath = System.IO.Path.Join(path, "producting.db");
+    // }
 
-    // The following configures EF to create a Sqlite database file in the
-    // special "local" folder for your platform.
-    protected override void OnConfiguring(DbContextOptionsBuilder options)
-        => options.UseSqlite($"Data Source={DbPath}");
+    // // The following configures EF to create a Sqlite database file in the
+    // // special "local" folder for your platform.
+    // protected override void OnConfiguring(DbContextOptionsBuilder options)
+    //     => options.UseSqlite($"Data Source={DbPath}");
 }
