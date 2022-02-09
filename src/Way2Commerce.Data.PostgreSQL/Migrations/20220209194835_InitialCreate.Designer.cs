@@ -12,7 +12,7 @@ using Way2Commerce.Data.PostgreSQL;
 namespace Way2Commerce.Data.PostgreSQL.Migrations
 {
     [DbContext(typeof(ProductingContext))]
-    [Migration("20220207195132_InitialCreate")]
+    [Migration("20220209194835_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,23 +32,32 @@ namespace Way2Commerce.Data.PostgreSQL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("integer");
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .IsUnicode(false)
+                        .HasColumnType("character varying(250)");
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(500)
+                        .IsUnicode(false)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");

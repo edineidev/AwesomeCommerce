@@ -13,7 +13,7 @@ public class ProductTests
     [Fact]
     public void Test1()
     {
-        var product = new Product(1, "123456", "Wayne Batman", "Sou foda!!!", 99.99m, 1);
+        var product = new Product(1, "123456", "Wayne Batman", "Sou foda!!!", 99.99m, Category.Eletronics);
 
         var isValid = product.IsValid();
 
@@ -23,7 +23,7 @@ public class ProductTests
     [Fact]
     public void Test2()
     {
-        var product = new Product(1, "1234567", "Wayne Batman", "Sou foda!!!", 99.99m, 1);
+        var product = new Product(1, "1234567", "Wayne Batman", "Sou foda!!!", 99.99m, Category.Eletronics);
 
         var isValid = product.IsValid();
 

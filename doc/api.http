@@ -1,4 +1,5 @@
-@baseUrl = https://awesome-ecommerce.herokuapp.com
+//@baseUrl = https://awesome-ecommerce.herokuapp.com
+@baseUrl = https://localhost:7168
 
 GET {{baseUrl}}/Product
 
@@ -11,6 +12,6 @@ content-type: application/json
     "code": "123abc",
     "name": "teste",
     "description": "teste",
-    "price": 19,
-    "categoryId": 1
+    "price": 19.99,
+    "category": "Eletronics"
 }
