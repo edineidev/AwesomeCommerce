@@ -19,14 +19,20 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost(Name = "CreateProduct")]
-    public Product Create(Product product)
-    {
-        return _productRepository.Create(product);
-    }
+    public Product Create(Product product) => _productRepository.Create(product);
+
+    [HttpGet("{productId:int}", Name = "GetProduct")]
+    public Product Get(int productId) => _productRepository.Get(productId);
 
     [HttpGet(Name = "ListProduct")]
-    public IEnumerable<Product> List()
+    public IEnumerable<Product> List() => _productRepository.List();
+
+    [HttpPut(Name = "UpdateProduct")]
+    public Product Update(Product product)
     {
-        return _productRepository.List();
+        return _productRepository.Update(product);
     }
+
+    [HttpDelete("{productId:int}", Name = "DeleteProduct")]
+    public void Delete(int productId) => _productRepository.Delete(productId);
 }

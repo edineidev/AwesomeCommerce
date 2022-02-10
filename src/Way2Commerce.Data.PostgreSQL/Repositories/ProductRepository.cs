@@ -20,12 +20,12 @@ public class ProductRepository : IProductRepository
 
         return product;
     }
-
-    public bool Delete(int productId)
+    
+    public Product Get(int productId)
     {
-        throw new NotImplementedException();
+        return _productingContext.Products.Single(p => p.Id == productId);
     }
-
+    
     public IEnumerable<Product> List()
     {
         return _productingContext.Products;
@@ -33,6 +33,21 @@ public class ProductRepository : IProductRepository
 
     public Product Update(Product product)
     {
-        throw new NotImplementedException();
+        var actualProduct = this.Get(product.Id);
+
+        actualProduct.PopuleValues(product);
+
+        _productingContext.SaveChanges();
+
+        return actualProduct;
+    }
+
+    public void Delete(int productId)
+    {
+        var product = _productingContext.Products.Single(p => p.Id == productId);
+
+        product.SetDeactivate();
+
+        _productingContext.SaveChanges();
     }
 }

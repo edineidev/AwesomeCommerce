@@ -5,7 +5,8 @@ namespace Way2Commerce.Domain.Repositories;
 public interface IProductRepository
 {
     Product Create(Product product);
+    Product Get(int idProduct);
     IEnumerable<Product> List();
     Product Update(Product product);
-    bool Delete(int productId);
+    void Delete(int productId);
 }
