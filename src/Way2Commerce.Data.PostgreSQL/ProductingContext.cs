@@ -6,7 +6,7 @@ using Way2Commerce.Domain.Entities;
 namespace Way2Commerce.Data.PostgreSQL;
 public class ProductingContext : DbContext
 {
-    public ProductingContext(DbContextOptions? options) : base(options)
+    public ProductingContext(DbContextOptions options) : base(options)
     {
         
     }
@@ -19,7 +19,7 @@ public class ProductingContext : DbContext
             .HaveMaxLength(500);
     }
 
-    public DbSet<Product> Products { get; set; }
+    public DbSet<Product> Products { get; set; } = default!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseNpgsql();

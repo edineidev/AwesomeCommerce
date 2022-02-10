@@ -28,10 +28,7 @@ public class ProductController : ControllerBase
     public IEnumerable<Product> List() => _productRepository.List();
 
     [HttpPut(Name = "UpdateProduct")]
-    public Product Update(Product product)
-    {
-        return _productRepository.Update(product);
-    }
+    public Product Update(Product product) => _productRepository.Update(product);
 
     [HttpDelete("{productId:int}", Name = "DeleteProduct")]
     public void Delete(int productId) => _productRepository.Delete(productId);

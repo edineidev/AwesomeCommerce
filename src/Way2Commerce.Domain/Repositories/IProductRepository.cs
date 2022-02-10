@@ -7,6 +7,6 @@ public interface IProductRepository
     Product Create(Product product);
     Product Get(int idProduct);
     IEnumerable<Product> List();
-    Product Update(Product product);
+    Product Update(Product productNewValues);
     void Delete(int productId);
 }

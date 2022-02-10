@@ -31,11 +31,11 @@ public class ProductRepository : IProductRepository
         return _productingContext.Products;
     }
 
-    public Product Update(Product product)
+    public Product Update(Product productNewValues)
     {
-        var actualProduct = this.Get(product.Id);
+        var actualProduct = this.Get(productNewValues.Id);
 
-        actualProduct.PopuleValues(product);
+        actualProduct.PopuleValues(productNewValues);
 
         _productingContext.SaveChanges();
 
