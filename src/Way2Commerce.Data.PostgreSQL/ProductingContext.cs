@@ -31,5 +31,7 @@ public class ProductingContext : DbContext
             .HasConversion(new EnumToStringConverter<Category>())
             .HasMaxLength(250)
             .IsUnicode(false);
+
+        modelBuilder.Entity<Product>().HasQueryFilter(p => p.Active);
     }
 }

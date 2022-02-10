@@ -1,4 +1,5 @@
-using Way2Commerce.Data.PostgreSQL;
+using Microsoft.EntityFrameworkCore;
+
 using Way2Commerce.Domain.Entities;
 using Way2Commerce.Domain.Repositories;
 
@@ -23,12 +24,12 @@ public class ProductRepository : IProductRepository
     
     public Product Get(int productId)
     {
-        return _productingContext.Products.Single(p => p.Id == productId);
+        return _productingContext.Products.AsNoTracking().Single(p => p.Id == productId);
     }
     
     public IEnumerable<Product> List()
     {
-        return _productingContext.Products;
+        return _productingContext.Products.AsNoTracking();
     }
 
     public Product Update(Product productNewValues)
