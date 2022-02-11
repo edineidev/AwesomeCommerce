@@ -65,7 +65,7 @@ namespace Way2Commerce.Data.PostgreSQL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 #pragma warning restore 612, 618
         }

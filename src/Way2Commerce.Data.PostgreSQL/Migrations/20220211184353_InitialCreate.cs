@@ -21,7 +21,8 @@ namespace Way2Commerce.Data.PostgreSQL.Migrations
                     Description = table.Column<string>(type: "character varying(500)", unicode: false, maxLength: 500, nullable: false),
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Category = table.Column<string>(type: "character varying(250)", unicode: false, maxLength: 250, nullable: false)
+                    Category = table.Column<string>(type: "character varying(250)", unicode: false, maxLength: 250, nullable: false),
+                    Active = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {

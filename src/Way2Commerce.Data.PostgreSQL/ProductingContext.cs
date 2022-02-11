@@ -26,12 +26,6 @@ public class ProductingContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Product>()
-            .Property(e => e.Category)
-            .HasConversion(new EnumToStringConverter<Category>())
-            .HasMaxLength(250)
-            .IsUnicode(false);
-
-        modelBuilder.Entity<Product>().HasQueryFilter(p => p.Active);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductEntityTypeConfiguration).Assembly);
     }
 }

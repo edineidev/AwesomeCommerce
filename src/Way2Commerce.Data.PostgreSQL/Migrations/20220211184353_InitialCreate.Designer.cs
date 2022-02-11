@@ -12,7 +12,7 @@ using Way2Commerce.Data.PostgreSQL;
 namespace Way2Commerce.Data.PostgreSQL.Migrations
 {
     [DbContext(typeof(ProductingContext))]
-    [Migration("20220209194835_InitialCreate")]
+    [Migration("20220211184353_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,9 @@ namespace Way2Commerce.Data.PostgreSQL.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Category")
                         .IsRequired()
